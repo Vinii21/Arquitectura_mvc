@@ -3,6 +3,7 @@ require("dotenv").config()
 const db = require("./utils/database")
 const initModels = require("./models/initModel")
 const UserRouter = require("./routers/users.router")
+const TodoRouter = require("./routers/todo.router")
 
 initModels();
 
@@ -20,7 +21,7 @@ app.get("/", (req, res)=>{
     res.send("Funciona")
 })
 
-app.use(UserRouter)
+app.use(UserRouter, TodoRouter)
 
 app.listen(port, () => {
     console.log(`Iniciado en el puerto ${port}`)

@@ -1,9 +1,18 @@
-const Todos = require("../models/todos.model")
+const Todos = require("../models/todos.model");
+const Subcategories = require("../models/subcategories.model")
+const TodosSubcategories = require("../models/todos_subcategories.model");
 
 const createTodo = async (req, res) => {
     try {
-        const {title, description, categoryId, userId} = req.body;
-        await Todos.create({title, description, categoryId, userId})
+        const {title, description, categoryId, userId, subcategoryId} = req.body;
+        
+        const todo = await Todos.create({title, description, categoryId, userId})
+        const subcategory = await Subcategories.findByPk(subcategoryId);
+        if (subcategory) {
+            await TodosSubcategories.create({todoId: todo.id, subcategoryId: subcategory.id})
+        }
+
+
         res.status(201).send()
     } catch (error) {
         res.status(400).json(error)
@@ -41,5 +50,6 @@ const deleteTodo = async (req, res) => {
 module.exports = {
     createTodo,
     updateStatus,
-    deleteTodo
+    deleteTodo,
+    getTodosById
 }

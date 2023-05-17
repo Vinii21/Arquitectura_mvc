@@ -18,11 +18,7 @@ const Users = db.define("users", {
     password: {
         type: DataTypes.STRING,
         allowNull: false
-    }/* ,
-    todoId: {
-        type: DataTypes.INTEGER,
-        field: "todo_id"
-    } */
+    }
 })
 
 module.exports = Users;

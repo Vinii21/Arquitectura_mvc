@@ -10,6 +10,7 @@ const createTodo = async (req, res) => {
         const subcategory = await Subcategories.findByPk(subcategoryId);
         if (subcategory) {
             await TodosSubcategories.create({todoId: todo.id, subcategoryId: subcategory.id})
+            
         }
 
 

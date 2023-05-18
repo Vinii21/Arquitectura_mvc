@@ -24,10 +24,6 @@ const Todos = db.define("todos",{
         allowNull: false,
         field:"user_id"
     }
-},{
-    timestamps: true,
-    updatedAt: false,
-    createdAt: "created_at"
 })
 
 module.exports = Todos;

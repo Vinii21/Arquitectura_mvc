@@ -4,12 +4,13 @@ const db = require("./utils/database")
 const initModels = require("./models/initModel")
 const UserRouter = require("./routers/users.router")
 const TodoRouter = require("./routers/todo.router")
+const corns = require("cors")
 
 initModels();
 
 const app = express()
 
-app.use(express.json())
+app.use(express.json(), corns())
 
 const port = process.env.PORT || 3000;
 

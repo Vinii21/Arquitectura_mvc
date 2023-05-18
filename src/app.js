@@ -6,13 +6,13 @@ const UserRouter = require("./routers/users.router")
 const TodoRouter = require("./routers/todo.router")
 const CategoryRouter = require("./routers/categories.router")
 const SubcategoryRouter = require("./routers/subcategories.router")
-const corns = require("cors")
+const cors = require("cors")
 
 initModels();
 
 const app = express()
 
-app.use(express.json(), corns())
+app.use(express.json(), cors())
 
 const port = process.env.PORT || 3000;
 

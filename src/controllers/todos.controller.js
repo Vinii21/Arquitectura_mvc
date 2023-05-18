@@ -18,7 +18,9 @@ const createTodo = async (req, res) => {
         const todo = await Todos.create({title, description, categoryId, userId})
         const subcategory = await Subcategories.findByPk(subcategoryId);
         
-        await TodosSubcategories.findOrCreate({where:{todoId: todo.id, subcategoryId: subcategory.id}}) 
+        const [todosubcategory, created] = await TodosSubcategories.findOrCreate({
+            where:{todoId: todo.id, subcategoryId: subcategory.id}
+        }) 
 
         res.status(201).send()
     } catch (error) {

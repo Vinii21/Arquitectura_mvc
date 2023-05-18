@@ -12,7 +12,7 @@ const initModels = () => {
     Categories.hasMany(Todos, {foreignKey: "categoryId"})
 
     Todos.belongsToMany(Subcategories, {through: TodosSubcategories, foreignKey:"todoId", otherKey:"subcategoryId", timestamps: false})
-    Subcategories.belongsToMany(Todos, {through: TodosSubcategories, foreignKey:"todoId", otherKey:"subcategoryId", timestamps: false})
+    Subcategories.belongsToMany(Todos, {through: TodosSubcategories, foreignKey:"subcategoryId", otherKey:"todoId", timestamps: false})
 }
 
 module.exports = initModels;

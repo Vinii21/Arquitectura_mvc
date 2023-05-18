@@ -2,6 +2,15 @@ const Todos = require("../models/todos.model");
 const Subcategories = require("../models/subcategories.model")
 const TodosSubcategories = require("../models/todos_subcategories.model");
 
+const getAllTodos = async (req, res) => {
+    try {
+        const todos = await Todos.findAll()
+        res.json(todos)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
+
 const createTodo = async (req, res) => {
     try {
         const {title, description, categoryId, userId, subcategoryId} = req.body;
@@ -51,5 +60,6 @@ const deleteTodo = async (req, res) => {
 module.exports = {
     createTodo,
     updateStatus,
-    deleteTodo
+    deleteTodo,
+    getAllTodos
 }

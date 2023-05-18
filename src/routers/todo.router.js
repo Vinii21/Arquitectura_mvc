@@ -1,9 +1,7 @@
 const {Router} = require("express")
-const {createTodo, updateStatus, deleteTodo, getTodosById} = require("../controllers/todos.controller")
+const {createTodo, updateStatus, deleteTodo} = require("../controllers/todos.controller")
 
 const router = Router()
-
-router.get("/todos/:id", getTodosById)
 
 router.post("/todos", createTodo)
 

@@ -43,7 +43,17 @@ const getUserTodosById = async (req, res) => {
     }
 }
 
+const getAllUsers = async (req, res) => {
+    try {
+        const users = Users.findAll()
+        res.json(users)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
+
 module.exports = {
     createUser,
-    getUserTodosById
+    getUserTodosById,
+    getAllUsers
 }

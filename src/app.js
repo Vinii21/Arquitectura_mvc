@@ -4,6 +4,8 @@ const db = require("./utils/database")
 const initModels = require("./models/initModel")
 const UserRouter = require("./routers/users.router")
 const TodoRouter = require("./routers/todo.router")
+const CategoryRouter = require("./routers/categories.router")
+const SubcategoryRouter = require("./routers/subcategories.router")
 const corns = require("cors")
 
 initModels();
@@ -22,7 +24,7 @@ app.get("/", (req, res)=>{
     res.send("Funciona")
 })
 
-app.use(UserRouter, TodoRouter)
+app.use(UserRouter, TodoRouter, CategoryRouter, SubcategoryRouter)
 
 app.listen(port, () => {
     console.log(`Iniciado en el puerto ${port}`)

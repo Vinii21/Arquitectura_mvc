@@ -2,7 +2,6 @@ const Users = require("../models/users.model")
 const Todos = require("../models/todos.model")
 const Categories = require("../models/categories.model")
 const Subcategories = require("../models/subcategories.model")
-const Todos_subcategories = require("../models/todos_subcategories.model")
 
 const createUser = async (req, res) => {
     try {
@@ -45,7 +44,7 @@ const getUserTodosById = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
     try {
-        const users = Users.findAll()
+        const users = await Users.findAll()
         res.json(users)
     } catch (error) {
         res.status(400).json(error)

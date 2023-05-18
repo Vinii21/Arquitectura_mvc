@@ -9,6 +9,12 @@ const db = new Sequelize({
     password: process.env.DB_PASSWORD,
     dialect: "postgres",
     dialectOptions: { ssl: {require: true, rejectUnauthorized: false} }
+/*     host: "localhost",
+    database: "todo_crud_mvc",
+    port: 5432,
+    username: "postgres",
+    password: "root",
+    dialect: "postgres", */
 })
 
 module.exports = db;

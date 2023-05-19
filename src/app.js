@@ -12,17 +12,23 @@ initModels();
 
 const app = express()
 
-app.use(express.json(), cors())
+app.set("view engine", "ejs")
+app.use(express.json(), cors(), express.static("public"))
 
 const port = process.env.PORT || 3000;
 
 db.sync()
     .then(()=>{console.log("Base de datos sincronizada")})
     .catch((error)=>console.error(error))
+    
+app.get('/health', (req, res) => {
+    res.sendStatus(200);
+});
 
 app.get("/", (req, res)=>{
-    res.send("Funciona")
+    res.render("index")
 })
+
 
 app.use(UserRouter, TodoRouter, CategoryRouter, SubcategoryRouter)
 

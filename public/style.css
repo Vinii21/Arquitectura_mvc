@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: #FFF
+}
+
 body{
     background-color: rgb(210, 202, 214);
     display: flex;
@@ -40,4 +45,32 @@ body{
     100% {
         transform: scale(1);
     }
+}
+
+.container-btn{
+    padding-top: 100px;
+}
+
+.btn {
+    width: 100px;
+    height: 30px;
+    border: 3px solid #2a4772;
+    color: #FFF;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .5s all ease;
+}
+
+.btn:hover {
+    background-color: #1f6feb;
+    border: 3px solid #161b22;
+    transform: scale(0.9);
+}
+
+.postman {
+    background-color: #ff6c36;
+}
+
+.github {
+    background-color: #161b22;
 }

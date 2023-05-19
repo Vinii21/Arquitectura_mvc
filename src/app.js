@@ -21,9 +21,9 @@ db.sync()
     .then(()=>{console.log("Base de datos sincronizada")})
     .catch((error)=>console.error(error))
     
-/* app.get('/health', (req, res) => {
+app.get('/health', (req, res) => {
     res.sendStatus(200);
-}); */
+});
 
 app.get("/", (req, res)=>{
     res.render("index")
